@@ -1,0 +1,17 @@
+<!-- family-dialog.component.html -->
+<div class="family-dialog">
+    <form [formGroup]="familyForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="code">Code Famille</label>
+            <input id="code" pInputText formControlName="code" />
+        </div>
+        <div class="form-group">
+            <label for="libelle">Libellé</label>
+            <input id="libelle" pInputText formControlName="libelle" />
+        </div>
+        <div class="form-buttons">
+            <button pButton type="submit" label="Valider" icon="pi pi-check" class="custom-button-submit"></button>
+            <button pButton type="button" label="Annuler" icon="pi pi-times" (click)="ref.close()" class="custom-button-cancel"></button>
+        </div>
+    </form>
+</div>

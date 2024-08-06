@@ -1,0 +1,61 @@
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" [visible]="confirmationVisible" (accept)="onConfirm()" (reject)="onReject()">
+    Êtes-vous sûr de vouloir changer l'état de la Peniche ?
+</p-confirmDialog>
+<p-toolbar styleClass="mb-2 gap-4">
+    <ng-template pTemplate="left">
+        <!-- Add button -->
+        <button pButton pRipple label="Ajouter Peniche" icon="pi pi-plus" class="p-button-success mr-2" (click)="showAddDialog()"></button>
+
+        <!-- Consult button -->
+        <button pButton pRipple label="Consulter" icon="pi pi-eye" class="p-button-info mr-2" [disabled]="!selectedPeniche" (click)="showConsultDialog()"></button>
+        <!-- Modify button -->
+        <button pButton pRipple label="Modifier" icon="pi pi-pencil" class="p-button p-button-secondary mr-2" [disabled]="!selectedPeniche" (click)="showModifyDialog()"></button>
+        <!-- Delete button -->
+        <button pButton pRipple label="Supprimer" icon="pi pi-trash" class="p-button p-button-danger mr-2" [disabled]="!selectedPeniche" (click)="showDeleteConfirmationDialog()"></button>
+        <!-- Vider button -->
+        <button pButton pRipple label="Vider" icon="pi pi-trash" class="p-button p-button-danger mr-2" [disabled]="!selectedPeniche || selectedPeniche.etat !== 'Peniche occupé'" (click)="confirmVider()">
+        </button>
+        <!-- Remplir button -->
+        <button pButton pRipple label="Remplir" icon="pi pi-check" class="p-button p-button-success mr-2" [disabled]="!selectedPeniche || selectedPeniche.etat !== 'Peniche libre'" (click)="confirmRemplir()">
+        </button>
+    </ng-template>
+</p-toolbar>
+
+<p-table [value]="peniches" [(selection)]="selectedPeniche" [paginator]="true" [rows]="5" selectionMode="single" dataKey="codePeniche">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Etat</th>
+            <th>Code Peniche</th>
+            <th>Numero Peniche</th>
+            <th>Fiche</th>
+            <th>Client</th>
+            <th>NumeroVisite</th>
+            <th>Type Peniche</th>
+            <th>DateVisite</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-peniche>
+        <tr [pSelectableRow]="peniche">
+            <td>{{peniche.etat}}</td>
+            <td>{{peniche.codePeniche}}</td>
+            <td>{{peniche.numeroPeniche}}</td>
+            <td>{{peniche.fiche}}</td>
+            <td>{{peniche.client}}</td>
+            <td>{{peniche.numeroVisite}}</td>
+            <td>{{peniche.typePeniche}}</td>
+            <td>{{peniche.dateVisite}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<app-dialog-peniche [dialogType]="'add'" [visible]="displayAddDialog" (visibleChange)="handleDialogClose($event)" (onAdd)="addPeniche($event)">
+</app-dialog-peniche>
+
+<app-dialog-peniche [dialogType]="'consult'" [selectedPeniche]="selectedPeniche" [visible]="displayConsultDialog" (visibleChange)="handleDialogClose($event)">
+</app-dialog-peniche>
+
+<app-dialog-peniche [dialogType]="'modify'" [selectedPeniche]="selectedPeniche" [visible]="displayModifyDialog" (visibleChange)="handleDialogClose($event)" (onModify)="saveModify($event)">
+</app-dialog-peniche>
+
+<app-dialog-peniche [dialogType]="'delete'" [selectedPeniche]="selectedPeniche" [visible]="displayDeleteConfirmationDialog" (visibleChange)="handleDialogClose($event)" (onDelete)="handleDelete($event)">
+</app-dialog-peniche>

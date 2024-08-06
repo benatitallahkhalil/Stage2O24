@@ -1,0 +1,52 @@
+<p-toolbar styleClass="custom-toolbar">
+    <ng-template pTemplate="left">
+        <button pButton type="button" label="Ajouter" icon="pi pi-plus" (click)="openDialog('add')" class="p-button-success custom-button"></button>
+        <button pButton type="button" label="Voir" icon="pi pi-search" (click)="openDialog('consult', selectedDivers)" [disabled]="!selectedDivers" class="p-button-info custom-button"></button>
+        <button pButton type="button" label="Modifier" icon="pi pi-pencil" (click)="openDialog('modify', selectedDivers)" [disabled]="!selectedDivers" class="p-button-warning custom-button"></button>
+        <button pButton type="button" label="Supprimer" icon="pi pi-trash" (click)="openDialog('delete', selectedDivers)" [disabled]="!selectedDivers" class="p-button-danger custom-button"></button>
+    </ng-template>
+</p-toolbar>
+
+<p-table [value]="divers" [(selection)]="selectedDivers" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="numeroDivers">Numero Divers
+                <p-sortIcon field="numeroDivers"></p-sortIcon>
+            </th>
+            <th pSortableColumn="fournisseur">Fournisseur
+                <p-sortIcon field="fournisseur"></p-sortIcon>
+            </th>
+            <th pSortableColumn="numeroPiece">Numero Piece
+                <p-sortIcon field="numeroPiece"></p-sortIcon>
+            </th>
+            <th pSortableColumn="dateDivers">Date Divers
+                <p-sortIcon field="dateDivers"></p-sortIcon>
+            </th>
+            <th pSortableColumn="montantDivers">Montant Divers
+                <p-sortIcon field="montantDivers"></p-sortIcon>
+            </th>
+            <th pSortableColumn="etatDivers">Etat Divers
+                <p-sortIcon field="etatDivers"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-divers>
+        <tr [pSelectableRow]="divers">
+            <td>{{divers.numeroDivers}}</td>
+            <td>{{divers.fournisseur}}</td>
+            <td>{{divers.numeroPiece}}</td>
+            <td>{{divers.dateDivers}}</td>
+            <td>{{divers.montantDivers}}</td>
+            <td>{{divers.etatDivers}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-tabView>
+    <p-tabPanel header="Tous">
+        <!-- Content for Divers SAV -->
+    </p-tabPanel>
+
+</p-tabView>
+<app-dialog [dialogType]="currentDialogType" [selectedDivers]="selectedDivers" [(visible)]="isDialogVisible" (onAdd)="handleAdd($event)" (onModify)="handleModify($event)" (onDelete)="handleDelete($event)">
+</app-dialog>

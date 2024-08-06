@@ -1,0 +1,65 @@
+:host ::ng-deep .p-dialog {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.custom-dialog-header {
+    background-color: #007ad9;
+    /* Use the same color as in Peniche */
+    color: white;
+}
+
+.custom-dialog-footer {
+    background-color: #f4f4f4;
+    /* Light grey, same as in Peniche */
+}
+
+.p-toolbar.custom-toolbar {
+    background-color: #007ad9;
+    /* Toolbar color */
+    color: white;
+}
+
+.p-toolbar .p-button {
+    margin-right: 0.5rem;
+}
+
+.custom-table th {
+    background-color: #007ad9;
+    /* Table header color */
+    color: white;
+}
+
+.custom-table td {
+    vertical-align: middle;
+}
+
+.custom-table .p-selectable-row:hover {
+    background-color: #f1f1f1;
+    /* Hover color */
+}
+
+.custom-button {
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+}
+
+.p-button-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.p-button-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.p-button-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.p-button-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}

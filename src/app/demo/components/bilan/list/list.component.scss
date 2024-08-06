@@ -1,0 +1,85 @@
+/* Add Button */
+
+.add-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+
+/* Table Styles */
+
+.bilan-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.bilan-table th,
+.bilan-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.bilan-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.bilan-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.bilan-table tr:hover {
+    background-color: #ddd;
+}
+
+
+/* Edit Button */
+
+.edit-button {
+    background-color: #2196F3;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #0b7dda;
+}
+
+
+/* Delete Button */
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #da190b;
+}
+
+
+/* Add this CSS to your component's styles (e.g., bilan.component.css) or global styles */
+
+.circular-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

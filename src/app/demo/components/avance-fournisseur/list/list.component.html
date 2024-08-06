@@ -1,0 +1,53 @@
+<p-toolbar styleClass="custom-toolbar">
+    <ng-template pTemplate="left">
+        <button pButton type="button" label="Ajouter" icon="pi pi-plus" (click)="openDialog('add')" class="p-button-success custom-button"></button>
+        <button pButton type="button" label="Voir" icon="pi pi-search" (click)="openDialog('consult', selectedAvance)" [disabled]="!selectedAvance" class="p-button-info custom-button"></button>
+        <button pButton type="button" label="Modifier" icon="pi pi-pencil" (click)="openDialog('modify', selectedAvance)" [disabled]="!selectedAvance" class="p-button-warning custom-button"></button>
+        <button pButton type="button" label="Supprimer" icon="pi pi-trash" (click)="openDialog('delete', selectedAvance)" [disabled]="!selectedAvance" class="p-button-danger custom-button"></button>
+    </ng-template>
+</p-toolbar>
+
+<p-table [value]="avance" [(selection)]="selectedAvance" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="numeroAvance">Numero Avance
+                <p-sortIcon field="numeroAvance"></p-sortIcon>
+            </th>
+            <th pSortableColumn="fournisseur">Fournisseur
+                <p-sortIcon field="fournisseur"></p-sortIcon>
+            </th>
+            <th pSortableColumn="numeroPiece">Numero Piece
+                <p-sortIcon field="numeroPiece"></p-sortIcon>
+            </th>
+            <th pSortableColumn="dateAvance">Date Avance
+                <p-sortIcon field="dateAvance"></p-sortIcon>
+            </th>
+            <th pSortableColumn="montantAvance">Montant Avance
+                <p-sortIcon field="montantAvance"></p-sortIcon>
+            </th>
+            <th pSortableColumn="etatAvance">Etat Avance
+                <p-sortIcon field="etatAvance"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-avance>
+        <tr [pSelectableRow]="avance">
+            <td>{{avance.numeroAvance}}</td>
+            <td>{{avance.fournisseur}}</td>
+            <td>{{avance.numeroPiece}}</td>
+            <td>{{avance.dateAvance}}</td>
+            <td>{{avance.montantAvance}}</td>
+            <td>{{avance.etatAvance}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-tabView>
+    <p-tabPanel header="Tous">
+        <!-- Content for Avance SAV -->
+    </p-tabPanel>
+
+</p-tabView>
+
+<app-dialog [dialogType]="currentDialogType" [selectedAvance]="selectedAvance" [(visible)]="isDialogVisible" (onAdd)="handleAdd($event)" (onModify)="handleModify($event)" (onDelete)="handleDelete($event)">
+</app-dialog>

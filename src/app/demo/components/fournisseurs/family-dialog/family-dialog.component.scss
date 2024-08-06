@@ -1,0 +1,72 @@
+/* Custom styling for the family dialog */
+
+.family-dialog {
+    padding: 20px;
+    /* Padding around the form */
+    max-width: 500px;
+    /* Maximum width for the dialog */
+    margin: 0 auto;
+    /* Center the dialog horizontally */
+    background-color: #fff;
+    /* White background */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+.form-group {
+    margin-bottom: 16px;
+    /* Space between form fields */
+}
+
+.form-group label {
+    display: block;
+    /* Labels should be on their own line */
+    margin-bottom: 8px;
+    /* Space below the label */
+    font-weight: bold;
+    /* Bold text for labels */
+    color: #333;
+    /* Darker color for better readability */
+}
+
+.form-group input {
+    width: 100%;
+    /* Full-width inputs */
+    padding: 8px;
+    /* Padding inside the input */
+    border: 1px solid #ccc;
+    /* Light border for inputs */
+    border-radius: 4px;
+    /* Rounded corners for inputs */
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */
+}
+
+.form-buttons {
+    display: flex;
+    /* Flex container for buttons */
+    justify-content: flex-end;
+    /* Align buttons to the right */
+    gap: 8px;
+    /* Space between buttons */
+}
+
+.custom-button-submit {
+    background-color: #4caf50;
+    /* Green background for submit button */
+    border: none;
+    /* Remove default border */
+    color: white;
+    /* White text */
+}
+
+.custom-button-cancel {
+    background-color: #f44336;
+    /* Red background for cancel button */
+    border: none;
+    /* Remove default border */
+    color: white;
+    /* White text */
+}

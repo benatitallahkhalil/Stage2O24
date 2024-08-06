@@ -1,0 +1,185 @@
+<p-dialog [header]="header" [(visible)]="visible" [modal]="true" [closable]="true" [style]="{width: '70vw'}" (onHide)="cancel()">
+    <div *ngIf="isAddDialog || isModifyDialog || isConsultDialog" class="p-fluid formgrid grid custom-border">
+        <div style="height: 10px;"></div>
+
+
+
+
+        <div class=" field col-8  ">
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="codeReclamation ">Code Reclamation:</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <p-dropdown id="codeReclamation " [(ngModel)]="currentReclamation.codeReclamation " [options]="reclamationOptions " [disabled]="isConsultDialog "></p-dropdown>
+                </span>
+                </div>
+            </div>
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="libelle ">libelle</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <p-dropdown id="libelle " [(ngModel)]="currentReclamation.libelle " [disabled]="isConsultDialog "></p-dropdown>
+                </span>
+                </div>
+            </div>
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="familler ">Famille</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <p-dropdown id="famille " [(ngModel)]="currentReclamation.famille " [options]="familleOptions " [disabled]="isConsultDialog "></p-dropdown>
+                </span>
+                </div>
+            </div>
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="sousFamille "> SousFamille</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <p-dropdown id="sousFamille " [(ngModel)]="currentReclamation.sousFamille " [options]="sousfamilleOptions " [disabled]="isConsultDialog "></p-dropdown>
+                </span>
+                </div>
+            </div>
+        </div>
+        <div class="field col-4 custom-border " style="padding: auto; text-align: center; ">
+
+
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <p-radioButton name="type " value="verre " [(ngModel)]="currentReclamation.type " [disabled]="isConsultDialog "></p-radioButton>
+
+                    <span style="width: 65%; max-width: 65%; ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="monture ">Monture</label>
+
+                </span>
+                </div>
+            </div>
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <p-radioButton name="type " value="verre " [(ngModel)]="currentReclamation.type " [disabled]="isConsultDialog "></p-radioButton>
+
+                    <span style="width: 65%; max-width: 65%; ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="verre ">Verre</label>
+
+                </span>
+                </div>
+            </div>
+
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <p-radioButton name="type " value="lentille " [(ngModel)]="currentReclamation.type " [disabled]="isConsultDialog "></p-radioButton>
+
+                    <span style="width: 65%; max-width: 65%; ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="lentille ">Lentille</label>
+
+                </span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div style=" width: 80%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+
+            <div style="width: 50%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                <p-checkbox id="commandeParCentral " [(ngModel)]="currentReclamation.commandeParCentral " binary="true " [disabled]="isConsultDialog "></p-checkbox>
+
+                <span style="width: 65%; max-width: 65%; ">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="commandeParCentral ">Commandé Par Central</label>
+
+            </span>
+            </div>
+            <div style="width: 50%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                <p-checkbox id="inadaptation " [(ngModel)]="currentReclamation.inadaptation " binary="true " [disabled]="isConsultDialog "></p-checkbox>
+
+                <span style="width: 65%; max-width: 65%; ">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="inadaptation ">Inadaptation</label>
+
+            </span>
+            </div>
+        </div>
+        <br> <br> <br>
+        <div style="width: 100%; " class=" custom-border ">
+
+
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="prixAchatHT ">Prix Achat HT</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="prixAchatHT " pInputText [(ngModel)]="currentReclamation.prixAchatHT " [disabled]="isConsultDialog ">
+                </span>
+                </div>
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="dernierPrixAchatNetHT ">Dernier P. Achat Net HT</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="dernierPrixAchatNetHT " pInputText [(ngModel)]="currentReclamation.dernierPrixAchatNetHT " [disabled]="isConsultDialog ">
+                </span>
+                </div>
+            </div>
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="marge ">Marge</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="marge " pInputText [(ngModel)]="currentReclamation.marge " [disabled]="isConsultDialog ">
+                </span>
+                </div>
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="prixAchatTTC ">Prix Achat TTC</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="prixAchatTTC " pInputText [(ngModel)]="currentReclamation.prixAchatTTC " [disabled]="isConsultDialog ">
+                </span>
+                </div>
+            </div>
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="dernierTxRemise ">Dernier Tx. Remise</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="dernierTxRemise " pInputText [(ngModel)]="currentReclamation.dernierTxRemise " [disabled]="isConsultDialog ">
+                </span>
+                </div>
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="tva ">TVA</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <p-dropdown id="tva " [(ngModel)]="currentReclamation.tva " [options]="tvaOptions " [disabled]="isConsultDialog "></p-dropdown>
+
+                </span>
+                </div>
+            </div>
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="prixVenteHT ">Prix Vente HT</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="prixVenteHT " pInputText [(ngModel)]="currentReclamation.prixVenteHT " [disabled]="isConsultDialog ">
+                </span>
+                </div>
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="prixVenteTTC ">Prix Vente TTC</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="prixVenteTTC " pInputText [(ngModel)]="currentReclamation.prixVenteTTC " [disabled]="isConsultDialog ">
+                </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div *ngIf="isDeleteDialog " class="p-fluid form " style="font-size: 13px; font-weight: 600; ">
+        Voulez-vous supprimer le Reclamation N°{{selectedReclamation.codeReclamation}}?
+    </div>
+
+    <p-footer>
+        <div class="p-d-flex p-jc-end ">
+            <button *ngIf="isAddDialog || isModifyDialog " pButton label="Valider " icon="pi pi-check " class="p-button-success " (click)="save() "></button>
+            <button *ngIf="isConsultDialog " pButton label="Fermer " icon="pi pi-times " class="p-button-secondary " (click)="cancel() "></button>
+            <button *ngIf="isDeleteDialog " pButton icon="pi pi-check " label="Confirmer " (click)="confirmDelete() " class="p-button-success "></button>
+            <button *ngIf="isDeleteDialog " pButton icon="pi pi-times " label="Annuler " (click)="cancel() " class="p-button-danger "></button>
+        </div>
+    </p-footer>
+</p-dialog>

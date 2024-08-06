@@ -1,0 +1,78 @@
+<p-dialog [header]="header" [(visible)]="visible" [modal]="true" [closable]="true" [style]="{width: '70vw'}" (onHide)="cancel()">
+    <div *ngIf="isAddDialog || isModifyDialog || isConsultDialog" class="p-fluid formgrid grid custom-border">
+        <!-- Fields for the Divers form -->
+        <div class=" custom-border" style="width: 100%; ">
+            <div style=" width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="numeroDivers ">Numéro Divers</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="numeroAvance " type="text " pInputText [(ngModel)]="currentAvance.numeroAvance " [disabled]="isConsultDialog ">
+                </span>
+                </div>
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="dateAvance ">Date Avance</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="dateAvance " type="date " pInputText [(ngModel)]="currentAvance.dateAvance " [disabled]="isConsultDialog ">
+                </span>
+                </div>
+            </div>
+            <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="fournisseur ">Fournisseur</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="fournisseur " type="text " pInputText [(ngModel)]="currentAvance.fournisseur " [disabled]="isConsultDialog ">
+                </span>
+                </div>
+            </div>
+        </div>
+        <p-tabView style="width: 100%;">
+            <p-tabPanel header="Détail Avance">
+                <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 10px;">
+                    <!-- Left Side Fields -->
+                    <div style="width: 50%; display: flex; flex-direction: column;">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <label style="width: 30%; font-size: 12px; font-weight: 900;" for="montantAvance">Montant Avance</label>
+                            <input id="montantAvance" type="text" pInputText [(ngModel)]="currentAvance.montantAvance" [disabled]="isConsultDialog" style="width: 70%;">
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <label style="width: 30%; font-size: 12px; font-weight: 900;" for="compte">Compte</label>
+                            <input id="compte" type="text" pInputText [(ngModel)]="currentAvance.compte" [disabled]="isConsultDialog" style="width: 70%;">
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <label style="width: 30%; font-size: 12px; font-weight: 900;" for="modeReglement">Mode de Règlement</label>
+                            <input id="modeReglement" type="text" pInputText [(ngModel)]="currentAvance.modeReglement" [disabled]="isConsultDialog" style="width: 70%;">
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <label style="width: 30%; font-size: 12px; font-weight: 900;" for="reference">Référence</label>
+                            <input id="reference" type="text" pInputText [(ngModel)]="currentAvance.reference" [disabled]="isConsultDialog" style="width: 30%; margin-right: 10px;">
+                            <label style="width: 20%; font-size: 12px; font-weight: 900;" for="echeance">Échéance</label>
+                            <input id="echeance" type="date" pInputText [(ngModel)]="currentAvance.echeance" [disabled]="isConsultDialog" style="width: 30%;">
+                        </div>
+                    </div>
+
+                    <!-- Montant Net Section -->
+                    <div class="custom-border" style="width: 45%; border: 1px solid #ddd; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <label style="font-size: 12px; font-weight: 900; color: red; margin-bottom: 5px; text-align: center;" for="montantNet">Montant Net</label>
+                        <input id="montantNet" type="text" pInputText [(ngModel)]="currentAvance.montantNet" [disabled]="isConsultDialog" style="width: 100%; height: 80px; font-size: 18px; text-align: center;">
+                    </div>
+                </div>
+
+            </p-tabPanel>
+            <p-tabPanel header="Observation ">
+                <!-- Observation content -->
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+    <div *ngIf="isDeleteDialog " class="p-fluid form " style="font-size: 13px; font-weight: 600; ">
+        Voulez-vous supprimer l'avance N°{{selectedAvance.numeroAvance}}?
+    </div>
+    <p-footer>
+        <div class="p-d-flex p-jc-end ">
+            <button *ngIf="isAddDialog || isModifyDialog " pButton label="Valider " icon="pi pi-check " class="p-button-success " (click)="save() "></button>
+            <button *ngIf="isAddDialog || isModifyDialog " pButton label="Annuler " icon="pi pi-times " class="p-button-danger " (click)="cancel() "></button>
+            <button *ngIf="isConsultDialog " pButton label="Fermer " icon="pi pi-times " class="p-button-secondary " (click)="cancel() "></button>
+            <button *ngIf="isDeleteDialog " pButton icon="pi pi-check " label="Confirmer " (click)="confirmDelete() " class="p-button-success "></button>
+            <button *ngIf="isDeleteDialog " pButton icon="pi pi-times " label="Annuler " (click)="cancel() " class="p-button-danger "></button>
+        </div>
+    </p-footer>
+</p-dialog>

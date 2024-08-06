@@ -1,0 +1,55 @@
+<p-toolbar styleClass="custom-toolbar">
+    <ng-template pTemplate="left">
+        <button pButton icon="pi pi-plus" label="Ajouter" (click)="showDialog('add')" class="p-button-success"></button>
+        <button pButton icon="pi pi-pencil" label="Modifier" [disabled]="!selectedMedecin" (click)="showDialog('modify')" class="p-button-warning"></button>
+        <button pButton icon="pi pi-eye" label="Consulter" [disabled]="!selectedMedecin" (click)="showDialog('view')" class="p-button-info"></button>
+        <button pButton icon="pi pi-trash" label="Supprimer" [disabled]="!selectedMedecin" (click)="deleteMedecin()" class="p-button-danger"></button>
+    </ng-template>
+</p-toolbar>
+
+<p-table [value]="medecins" selectionMode="single" [(selection)]="selectedMedecin" dataKey="code" class="custom-table p-mb-4">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="codeMedecin">Code Medecin
+                <p-sortIcon field="codeMedecin"></p-sortIcon>
+            </th>
+            <th pSortableColumn="nom">Nom
+                <p-sortIcon field="nom"></p-sortIcon>
+            </th>
+            <th pSortableColumn="prenom">Prénom
+                <p-sortIcon field="prenom"></p-sortIcon>
+            </th>
+            <th pSortableColumn="adresse">Adresse
+                <p-sortIcon field="adresse"></p-sortIcon>
+            </th>
+            <th pSortableColumn="telCabinet">Tel Cabinet
+                <p-sortIcon field="telCabinet"></p-sortIcon>
+            </th>
+            <th pSortableColumn="telDomicile">Tel Domicile
+                <p-sortIcon field="telDomicile"></p-sortIcon>
+            </th>
+            <th pSortableColumn="telPortable1">Tel Portable1
+                <p-sortIcon field="telPortable1"></p-sortIcon>
+            </th>
+            <th pSortableColumn="telPortable2">Tel Portable2
+                <p-sortIcon field="telPortable2"></p-sortIcon>
+            </th>
+            <th pSortableColumn="email">E-Mail
+                <p-sortIcon field="email"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-medecin>
+        <tr [pSelectableRow]="medecin">
+            <td>{{ medecin.codeMedecin }}</td>
+            <td>{{ medecin.nom }}</td>
+            <td>{{ medecin.prenom }}</td>
+            <td>{{ medecin.adresse }}</td>
+            <td>{{ medecin.telCabinet }}</td>
+            <td>{{ medecin.telDomicile }}</td>
+            <td>{{ medecin.telPortable1 }}</td>
+            <td>{{ medecin.telPortable2 }}</td>
+            <td>{{ medecin.email }}</td>
+        </tr>
+    </ng-template>
+</p-table>

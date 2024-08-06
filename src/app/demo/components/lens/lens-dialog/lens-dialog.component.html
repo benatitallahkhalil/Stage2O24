@@ -1,0 +1,205 @@
+<p-dialog [header]="header" [(visible)]="visible" [modal]="true" [closable]="true" [style]="{width: '70vw'}" (onHide)="cancel()">
+    <div *ngIf="isAddDialog || isModifyDialog || isConsultDialog" class="p-fluid formgrid grid">
+
+        <div style="height: 10px;"></div>
+        <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px;">
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="codeLentille">Code Lentille::</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="codeLentille" [(ngModel)]="currentLentille.codeLentille" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="codeFournisseur">Code chez fournisseur:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="codeFournisseur" [(ngModel)]="currentLentille.codeFournisseur"  [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+        </div>
+
+        <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px;">
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="fournisseur">Fournisseur:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="fournisseur" [(ngModel)]="currentLentille.fournisseur" [options]="fournisseurOptions" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="reference">Référence:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <input id="reference" type="text" pInputText [(ngModel)]="currentLentille.reference"  [disabled]="isConsultDialog">
+                </span>
+            </div>
+        </div>
+        <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px;">
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="famille">Famille:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="famille" [(ngModel)]="currentLentille.famille" [options]="familleOptions" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="nomCouleur">Nom Couleur:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="nomCouleur" [(ngModel)]="currentLentille.nomCouleur" [options]="nomCouleurOptions" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+        </div>
+        <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px;">
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="marque">Marque:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="marque" [(ngModel)]="currentLentille.marque" [options]="marqueOptions" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="couleur">Couleur:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="couleur" [(ngModel)]="currentLentille.couleur" [options]="couleurOptions" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+        </div>
+        <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px;">
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="surface">Surface:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="surface" [(ngModel)]="currentLentille.surface" [options]="surfaceOptions" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="matiere">Matière:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="matiere" [(ngModel)]="currentLentille.matiere" [options]="matiereOptions" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+        </div>
+        <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px;">
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="type">Type:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="type" [(ngModel)]="currentLentille.type" [options]="typeOptions" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="materiaux">Matériaux:</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="materiaux" [(ngModel)]="currentLentille.materiaux" [options]="materiauxOptions" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+        </div>
+        <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px;">
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for=" renouvellement ">Renouvellement</label>
+                <span style="width: 65%; max-width: 65%; ">
+                    <p-dropdown id="renouvellement  " [(ngModel)]="currentLentille.renouvellement "  [options]="typeOptions " [disabled]="isConsultDialog "></p-dropdown>
+                </span>
+            </div>
+
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="teneurEau ">Teneur en eau</label>
+                <span style="width: 65%; max-width: 65%; ">
+                    <p-dropdown  id="teneurEau " [(ngModel)]="currentLentille.teneurEau "   [disabled]="isConsultDialog "></p-dropdown>
+                </span>
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="dke ">DK/e</label>
+                <span style="width: 65%; max-width: 65%; ">
+                    <p-dropdown id="dke "[(ngModel)]="currentLentille.dke  "  [disabled]="isConsultDialog "></p-dropdown>
+                </span>
+
+            </div>
+        </div>
+
+        <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px;">
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="designation ">Désignation</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="designation " [(ngModel)]="currentLentille.designation " [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+            <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900;" for="packaging ">Packaging</label>
+                <span style="width: 65%; max-width: 65%;">
+                    <p-dropdown id="packaging " [(ngModel)]="currentLentille.packaging " [options]="packagingOptions" [disabled]="isConsultDialog"></p-dropdown>
+                </span>
+            </div>
+        </div>
+
+        <div style="width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px;">
+            <div style="width: 30%; max-width: 30%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 40%; max-width: 40%; font-size: 12px; font-weight: 900;" for="rayonCourbureDebut">Rayon Courbure:</label>
+                <span style="width: 55%; max-width: 55%;">
+                    <div class="p-inputgroup">
+                        <input id="rayonCourbureDebut" type="number" pInputText [(ngModel)]="currentLentille.rayonCourbureDebut" [disabled]="isConsultDialog">
+                        <input id="rayonCourbureFin" type="number" pInputText [(ngModel)]="currentLentille.rayonCourbureFin" [disabled]="isConsultDialog">
+                        <input id="rayonCourburePas" type="number" pInputText [(ngModel)]="currentLentille.rayonCourburePas" [disabled]="isConsultDialog">
+                    </div>
+                </span>
+            </div>
+            <div style="width: 30%; max-width: 30%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 40%; max-width: 40%; font-size: 12px; font-weight: 900;" for="diametreDebut">Diamètre:</label>
+                <span style="width: 55%; max-width: 55%;">
+                    <div class="p-inputgroup">
+                        <input id="diametreDebut" type="number" pInputText [(ngModel)]="currentLentille.diametreDebut" [disabled]="isConsultDialog">
+                        <input id="diametreFin" type="number" pInputText [(ngModel)]="currentLentille.diametreFin" [disabled]="isConsultDialog">
+                        <input id="diametrePas" type="number" pInputText [(ngModel)]="currentLentille.diametrePas" [disabled]="isConsultDialog">
+                    </div>
+                </span>
+            </div>
+            <div style="width: 30%; max-width: 30%; display: flex; justify-content: space-between; align-items: baseline">
+                <label style="width: 40%; max-width: 40%; font-size: 12px; font-weight: 900;" for="additionDebut">Addition:</label>
+                <span style="width: 55%; max-width: 55%;">
+                    <div class="p-inputgroup">
+                        <input id="additionDebut" type="number" pInputText [(ngModel)]="currentLentille.additionDebut" [disabled]="isConsultDialog">
+                        <input id="additionFin" type="number" pInputText [(ngModel)]="currentLentille.additionFin" [disabled]="isConsultDialog">
+                        <input id="additionPas" type="number" pInputText [(ngModel)]="currentLentille.additionPas" [disabled]="isConsultDialog">
+                    </div>
+                </span>
+            </div>
+        </div>
+
+
+
+        <div class="field col-12 custom-border">
+            <p-table>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Code</th>
+                        <th>Fournisseur</th>
+                        <th>Marque</th>
+                        <th>Prix Vente</th>
+                        <th>Rayon</th>
+                        <th>Stock</th>
+                        <th>Sph</th>
+                        <th>Désignation</th>
+                        <th>Couleur Lentille</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-lentille>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+    <div *ngIf="isDeleteDialog " class="p-fluid form " style="font-size: 13px; font-weight: 600; ">
+        Voulez-vous supprimer le lentille N°{{selectedLentille.numeroLentille}}?
+    </div>
+
+    <p-footer>
+        <div class="p-d-flex p-jc-end ">
+            <button *ngIf="isAddDialog || isModifyDialog " pButton label="Valider " icon="pi pi-check " class="p-button-success " (click)="save() "></button>
+            <button *ngIf="isConsultDialog " pButton label="Fermer " icon="pi pi-times " class="p-button-secondary " (click)="cancel() "></button>
+            <button *ngIf="isDeleteDialog " pButton icon="pi pi-check " label="Confirmer " (click)="confirmDelete() " class="p-button-success "></button>
+            <button *ngIf="isDeleteDialog||isAddDialog || isModifyDialog  " pButton icon="pi pi-times " label="Annuler " (click)="cancel() " class="p-button-danger "></button>
+        </div>
+    </p-footer>
+</p-dialog>

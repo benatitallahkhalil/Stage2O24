@@ -1,0 +1,28 @@
+<!-- family-list.component.html -->
+<p-toolbar styleClass="custom-toolbar">
+    <ng-template pTemplate="left">
+        <button pButton icon="pi pi-plus" label="Ajouter" class="custom-button-success" (click)="showDialog('add')"></button>
+        <button pButton icon="pi pi-pencil" label="Modifier" class="custom-button-warning" [disabled]="!selectedFamily" (click)="showDialog('modify')"></button>
+        <button pButton icon="pi pi-eye" label="Consulter" class="custom-button-info" [disabled]="!selectedFamily" (click)="showDialog('view')"></button>
+        <button pButton icon="pi pi-trash" label="Supprimer" class="custom-button-danger" [disabled]="!selectedFamily" (click)="deleteFamily()"></button>
+    </ng-template>
+</p-toolbar>
+
+<p-table [value]="families" selectionMode="single" [(selection)]="selectedFamily" dataKey="code" class="family-table p-mb-4">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="code">Code Famille
+                <p-sortIcon field="code"></p-sortIcon>
+            </th>
+            <th pSortableColumn="libelle">Libellé
+                <p-sortIcon field="libelle"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-family>
+        <tr [pSelectableRow]="family">
+            <td>{{ family.code }}</td>
+            <td>{{ family.libelle }}</td>
+        </tr>
+    </ng-template>
+</p-table>

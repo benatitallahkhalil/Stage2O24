@@ -1,0 +1,95 @@
+<div class="medecin-dialog">
+    <form [formGroup]="medecinForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <label for="codeMedecin">Code Medecin</label>
+            <input id="codeMedecin" pInputText formControlName="codeMedecin" />
+        </div>
+
+        <div class="form-row">
+            <label>Civilité</label>
+            <div class="civilite">
+                <input type="radio" id="homme" formControlName="gender" value="Homme" />
+                <label for="homme">Homme</label>
+                <input type="radio" id="femme" formControlName="gender" value="Femme" />
+                <label for="femme">Femme</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label for="nom">Nom</label>
+            <input id="nom" pInputText formControlName="nom" />
+        </div>
+
+        <div class="form-row">
+            <label for="prenom">Prénom</label>
+            <input id="prenom" pInputText formControlName="prenom" />
+        </div>
+
+        <div class="form-row">
+            <label for="adresse">Adresse</label>
+            <textarea id="adresse" pInputText formControlName="adresse"></textarea>
+        </div>
+
+        <div class="form-row">
+            <label for="pays">Pays</label>
+            <select id="pays" formControlName="pays">
+                <option *ngFor="let pays of paysList">{{pays}}</option>
+            </select>
+
+            <label for="ville">Ville</label>
+            <select id="ville" formControlName="ville">
+                <option *ngFor="let ville of villeList">{{ville}}</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label for="email">E-Mail</label>
+            <input id="email" pInputText formControlName="email" />
+        </div>
+
+        <div class="form-row">
+            <label for="siteWeb">Site Web</label>
+            <input id="siteWeb" pInputText formControlName="siteWeb" />
+        </div>
+
+        <div class="form-row">
+            <label for="telCabinet">Tel Cabinet</label>
+            <input id="telCabinet" pInputText formControlName="telCabinet" />
+        </div>
+
+        <div class="form-row">
+            <label for="telDomicile">Tel Domicile</label>
+            <input id="telDomicile" pInputText formControlName="telDomicile" />
+        </div>
+
+        <div class="form-row">
+            <label for="telPortable1">Tel Portable1</label>
+            <input id="telPortable1" pInputText formControlName="telPortable1" />
+        </div>
+
+        <div class="form-row">
+            <label for="telPortable2">Tel Portable2</label>
+            <input id="telPortable2" pInputText formControlName="telPortable2" />
+        </div>
+
+        <div class="form-row">
+            <label for="fax">Fax</label>
+            <input id="fax" pInputText formControlName="fax" />
+        </div>
+
+        <div class="form-row">
+            <label>Type de Cabinet</label>
+            <div class="type-cabinet">
+                <input type="radio" id="clinique" formControlName="typeCabinet" value="Clinique" />
+                <label for="clinique">Clinique</label>
+                <input type="radio" id="hopital" formControlName="typeCabinet" value="Hôpital" />
+                <label for="hopital">Hôpital</label>
+            </div>
+        </div>
+
+        <div class="form-buttons">
+            <button pButton type="submit" label="Valider" icon="pi pi-check" class="p-button-success"></button>
+            <button pButton type="button" label="Annuler" icon="pi pi-times" (click)="onCancel()" class="p-button-secondary"></button>
+        </div>
+    </form>
+</div>

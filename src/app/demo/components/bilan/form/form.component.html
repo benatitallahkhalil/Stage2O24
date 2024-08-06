@@ -1,0 +1,122 @@
+<div>
+    <h2>{{ isAddMode ? 'Ajouter' : 'Modifier' }} Bilan</h2>
+    <form [formGroup]="bilanForm" (ngSubmit)="onSubmit()">
+
+        <div class=" custom-border" style="width: 100%; ">
+            <div style=" width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="nom">Nom:</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="nom" type="text"pInputText formControlName="nom">
+                </span>
+                </div>
+
+            </div>
+        </div>
+        <div class=" custom-border" style="width: 100%; ">
+            <div style=" width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="prenom">Prénom:</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="prenom" type="text" pInputText formControlName="prenom">
+                </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class=" custom-border" style="width: 100%; ">
+            <div style=" width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="mobile">Mobile:</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="mobile" type="text" pInputText formControlName="mobile">
+                </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class=" custom-border" style="width: 100%; ">
+            <div style=" width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="mobile">Mobile:</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="mobile" type="text" pInputText formControlName="mobile">
+                </span>
+                </div>
+
+            </div>
+        </div>
+        <div class=" custom-border" style="width: 100%; ">
+            <div style=" width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="poids">Poids:</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="poids" type="text" pInputText formControlName="poids">
+                </span>
+                </div>
+
+            </div>
+        </div>
+        <div class=" custom-border" style="width: 100%; ">
+            <div style=" width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="taille">Taille:</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="taille" type="text" pInputText formControlName="taille">
+                </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class=" custom-border" style="width: 100%; ">
+            <div style=" width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="prix">Prix:</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="prix" type="text" pInputText formControlName="prix">
+                </span>
+                </div>
+
+            </div>
+        </div>
+        <div class=" custom-border" style="width: 100%; ">
+            <div style=" width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="createur">Créateur:</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="createur" type="text" pInputText formControlName="createur">
+                </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class=" custom-border" style="width: 100%; ">
+            <div style=" width: 100%; justify-content: space-between; flex-direction: row; display: flex; margin-top: 10px; ">
+                <div style="width: 45%; max-width: 45%; display: flex; justify-content: space-between; align-items: baseline ">
+                    <label style="width: 30%; max-width: 30%; font-size: 12px; font-weight: 900; " for="dateCreation">Date Création:</label>
+                    <span style="width: 65%; max-width: 65%; ">
+                    <input id="dateCreation" type="date" pInputText formControlName="dateCreation">
+                </span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- General Error Message -->
+        <div *ngIf="errorMessage" class="error-message">
+            <p>{{ errorMessage }}</p>
+        </div>
+        <p-footer>
+            <div class="p-d-flex p-jc-end ">
+                <button type="submit" pButton icon="pi pi-check " [disabled]="bilanForm.invalid" class="btn btn-primary">{{ isAddMode ? 'Ajouter' : 'Modifier' }}</button>
+
+            </div>
+        </p-footer>
+
+    </form>
+</div>

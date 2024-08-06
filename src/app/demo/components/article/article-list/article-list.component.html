@@ -1,0 +1,43 @@
+<p-toolbar styleClass="custom-toolbar">
+    <ng-template pTemplate="left">
+        <button pButton type="button" label="Ajouter" icon="pi pi-plus" (click)="openDialog('add')" class="p-button-success custom-button"></button>
+        <button pButton type="button" label="Voir" icon="pi pi-search" (click)="openDialog('consult')" [disabled]="!selectedArticle" class="p-button-info custom-button"></button>
+        <button pButton type="button" label="Modifier" icon="pi pi-pencil" (click)="openDialog('modify')" [disabled]="!selectedArticle" class="p-button-warning custom-button"></button>
+        <button pButton type="button" label="Supprimer" icon="pi pi-trash" (click)="openDialog('delete')" [disabled]="!selectedArticle" class="p-button-danger custom-button"></button>
+    </ng-template>
+</p-toolbar>
+
+<p-table [value]="article" selectionMode="single" [(selection)]="selectedArticle" (onRowSelect)="enableButtons()">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Code Article</th>
+            <th>Fournisseur</th>
+            <th>Désignation</th>
+            <th>Prix Achat TTC</th>
+            <th>Marge</th>
+            <th>Prix Vente TTC</th>
+            <th>Quantité</th>
+            <th>Possible Vente Gratuite</th>
+            <th>Gestion Lot</th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-article>
+        <tr [pSelectableRow]="article">
+
+            <td>{{ article.codeArticle }}</td>
+            <td>{{ article.fournisseur }}</td>
+            <td>{{ article.designation }}</td>
+            <td>{{ article.prixAchatTTC | currency:'EUR' }}</td>
+            <td>{{ article.marge | percent:'1.0-2' }}</td>
+            <td>{{ article.prixVenteTTC | currency:'EUR' }}</td>
+            <td>{{ article.quantite }}</td>
+            <td>{{ article.possibleVenteGratuite ? 'Oui' : 'Non' }}</td>
+            <td>{{ article.gestionLot ? 'Oui' : 'Non' }}</td>
+
+        </tr>
+    </ng-template>
+</p-table>
+
+<app-article-dialog [dialogType]="currentDialogType" [selectedArticle]="selectedArticle" [(visible)]="isDialogVisible" (onAdd)="handleAdd($event)" (onModify)="handleModify($event)" (onDelete)="handleDelete($event)">
+</app-article-dialog>

@@ -1,0 +1,25 @@
+<p-dialog [header]="isAddDialog ? 'Ajouter Peniche' : isConsultDialog ? 'Détails Peniche' : isModifyDialog ? 'Modifier Peniche' : 'Confirmation de Suppression'" [(visible)]="visible" [modal]="true" [closable]="true" [style]="{width: '30vw'}" (onHide)="cancel()">
+
+    <div *ngIf="isAddDialog || isModifyDialog || isConsultDialog" class="p-fluid formgrid grid">
+        <div class="field col-12">
+            <label for="codePeniche">Code Peniche</label>
+            <input id="codePeniche" type="text" pInputText [(ngModel)]="isAddDialog ? newPeniche.codePeniche : selectedPeniche.codePeniche" [disabled]="isConsultDialog">
+        </div>
+        <div class="field col-12">
+            <label for="numeroPeniche">Numero Peniche</label>
+            <input id="numeroPeniche" type="text" pInputText [(ngModel)]="isAddDialog ? newPeniche.numeroPeniche : selectedPeniche.numeroPeniche" [disabled]="isConsultDialog">
+        </div>
+        <!-- Add other fields as needed -->
+    </div>
+    <div *ngIf="isDeleteDialog" class="p-fluid form" style="font-size: 13px;font-weight: 600;">
+        Voulez-Vous supprimer le peniche N°{{selectedPeniche.numeroPeniche }}??
+    </div>
+    <p-footer>
+        <div class=" p-d-flex p-jc-end ">
+            <button *ngIf="isAddDialog || isModifyDialog " pButton label="Valider " icon="pi pi-check " class="p-button-success " (click)="save() "></button>
+            <button *ngIf="isConsultDialog " pButton label="Fermer " icon="pi pi-times " class="p-button-secondary " (click)="cancel() "></button>
+            <button *ngIf="isDeleteDialog " pButton icon="pi pi-check " label="Confirmer " (click)="confirmDelete() " class="p-button-success "></button>
+            <button *ngIf="isDeleteDialog " pButton icon="pi pi-times " label="Annuler " (click)="cancel() " class="p-button-danger "></button>
+        </div>
+    </p-footer>
+</p-dialog>

@@ -1,0 +1,40 @@
+<p-toolbar styleClass="custom-toolbar">
+    <ng-template pTemplate="left">
+        <button pButton type="button" label="Ajouter" icon="pi pi-plus" (click)="openDialog('add')" class="p-button-success custom-button"></button>
+        <button pButton type="button" label="Voir" icon="pi pi-search" (click)="openDialog('consult')" [disabled]="!selectedReclamation" class="p-button-info custom-button"></button>
+        <button pButton type="button" label="Modifier" icon="pi pi-pencil" (click)="openDialog('modify')" [disabled]="!selectedReclamation" class="p-button-warning custom-button"></button>
+        <button pButton type="button" label="Supprimer" icon="pi pi-trash" (click)="openDialog('delete')" [disabled]="!selectedReclamation" class="p-button-danger custom-button"></button>
+    </ng-template>
+</p-toolbar>
+
+<p-table [value]="reclamation" [(selection)]="selectedReclamation" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="codeReclamation">code Reclamation
+                <p-sortIcon field="codeReclamation"></p-sortIcon>
+            </th>
+            <th pSortableColumn="libelle">Libelle
+                <p-sortIcon field="libelle"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-reclamation>
+        <tr [pSelectableRow]="reclamation">
+            <td>{{reclamation.codeReclamation}}</td>
+            <td>{{reclamation.libelle}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-tabView>
+    <p-tabPanel header="Reclamation SAV">
+        <!-- Content for Reclamation SAV -->
+    </p-tabPanel>
+    <p-tabPanel header="Article Stockable">
+        <!-- Content for Article Stockable -->
+    </p-tabPanel>
+</p-tabView>
+
+
+<app-reclamation-dialog [dialogType]="currentDialogType" [selectedReclamation]="selectedReclamation" [(visible)]="isDialogVisible" (onAdd)="handleAdd($event)" (onModify)="handleModify($event)" (onDelete)="handleDelete($event)">
+</app-reclamation-dialog>

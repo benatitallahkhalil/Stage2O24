@@ -1,0 +1,72 @@
+/* Custom toolbar styling */
+
+.custom-toolbar {
+    background-color: #ffffff;
+    /* Toolbar background color */
+    border: 1px solid #ddd;
+    /* Light border for the toolbar */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 10px;
+    /* Padding around the toolbar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    margin-bottom: 20px;
+    /* Space below the toolbar */
+}
+
+.custom-toolbar .p-button {
+    font-size: 14px;
+    /* Font size for buttons */
+    margin-right: 10px;
+    /* Space between buttons */
+}
+
+
+/* Custom table styling */
+
+.custom-table {
+    background-color: #ffffff;
+    /* Table background color */
+    border-radius: 8px;
+    /* Rounded corners */
+    overflow: hidden;
+    /* Ensure rounded corners are visible */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+.custom-table th {
+    background-color: #f9f9f9;
+    /* Header background color */
+    color: #333;
+    /* Text color for header */
+    font-weight: bold;
+    /* Bold text for headers */
+    padding: 12px 10px;
+    /* Padding in header cells */
+}
+
+.custom-table td {
+    padding: 10px;
+    /* Padding in body cells */
+    border-bottom: 1px solid #ddd;
+    /* Border between rows */
+}
+
+.custom-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+    /* Zebra striping for table rows */
+}
+
+.custom-table tr:hover {
+    background-color: #f1f1f1;
+    /* Highlight row on hover */
+}
+
+.custom-table .ui-state-highlight {
+    background-color: #e3f2fd !important;
+    /* Highlight color for selected rows */
+    color: #333 !important;
+    /* Text color for selected rows */
+}

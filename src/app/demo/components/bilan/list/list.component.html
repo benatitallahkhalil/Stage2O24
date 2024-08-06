@@ -1,0 +1,41 @@
+<!-- Add Bilan Button -->
+<button pButton type="button" icon="pi pi-plus" label="Ajouter Bilan" class="p-button-success" (click)="navigateToAdd()" aria-label="Ajouter Bilan"></button>
+
+<!-- No Bilan Found Message -->
+<div *ngIf="bilans.length === 0">
+    <p>Aucun bilan trouvé.</p>
+</div>
+
+<!-- Bilan Table -->
+<p-table *ngIf="bilans.length > 0" [value]="bilans">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Mobile</th>
+            <th>Poids</th>
+            <th>Taille</th>
+            <th>Prix</th>
+            <th>Créateur</th>
+            <th>Date de Création</th>
+            <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-bilan>
+        <tr>
+            <td>{{ bilan.nom }}</td>
+            <td>{{ bilan.prenom }}</td>
+            <td>{{ bilan.mobile }}</td>
+            <td>{{ bilan.poids }}</td>
+            <td>{{ bilan.taille }}</td>
+            <td>{{ bilan.prix }}</td>
+            <td>{{ bilan.createur }}</td>
+            <td>{{ bilan.dateCreation | date }}</td>
+            <td>
+                <button pButton type="button" icon="pi pi-pencil" class="p-button-warning p-button-rounded p-button-icon-only" (click)="navigateToEdit(bilan.idBilan)" aria-label="Modifier Bilan"></button>
+                <button pButton type="button" icon="pi pi-trash" class="p-button-danger p-button-rounded p-button-icon-only" (click)="confirmDelete(bilan)" aria-label="Supprimer Bilan"></button>
+
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

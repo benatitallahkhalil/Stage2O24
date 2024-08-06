@@ -1,0 +1,17 @@
+.custom-border {
+    border: 1px solid #e0e0e0;
+    /* Couleur de bordure plus claire */
+    padding: 1.5rem;
+    /* Augmenter le padding */
+    border-radius: 8px;
+    /* Augmenter la marge inférieure */
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin: 20px;
+}
